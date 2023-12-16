@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blockchain Visualization</title>
+    <style>
+        body { margin: 0; background-color: black; }
+        canvas { display: block; }
+        .block-label {
+            color: white;
+            background-color: transparent;
+            padding: 2px;
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+            font-size: 8px; /* Further reduced font size */
+        }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+
+        // Scene, camera, and renderer setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const css3DRenderer = new CSS3DRenderer();
+        css3DRenderer.setSize(window.innerWidth, window.innerHeight);
+        css3DRenderer.domElement.style.position = 'absolute';
+        css3DRenderer.domElement.style.top = 0;
+        document.body.appendChild(css3DRenderer.domElement);
+
+        // OrbitControls for mouse rotation
+        const controls = new OrbitControls(camera, css3DRenderer.domElement);
+
+        // Function to generate a random hash
+        const getRandomHash = () => Math.random().toString(36).substring(2, 10);
+
+        // Create blocks and chains
+        const blockSize = 1;
+        const blockDistance = 1.5;
+        const blocks = [];
+        const forks = [3, 7]; // Example fork points
+
+        for (let i = 0; i < 10; i++) {
+            const color = i === 9 ? 0x808080 : (forks.includes(i) ? 0xFF0000 : 0x00FF00); // Forks in red, last block in gray
+            const geometry = new THREE.BoxGeometry(blockSize, blockSize, blockSize);
+            const material = new THREE.MeshBasicMaterial({ color });
+            const block = new THREE.Mesh(geometry, material);
+            block.position.y = i * blockDistance;
+            block.position.x = forks.includes(i) ? 1.5 : 0; // Offset forks
+
+            // Add random hash label
+            const hashLabel = document.createElement('div');
+            hashLabel.className = 'block-label';
+            hashLabel.textContent = getRandomHash();
+            const label = new CSS3DObject(hashLabel);
+            label.position.set(block.position.x, block.position.y + 0.6, block.position.z); // Adjusted label position
+            // scene.add(label);
+
+            scene.add(block);
+            blocks.push(block);
+        }
+
+        // Connect blocks with lines
+        const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
+        for (let i = 0; i < blocks.length - 1; i++) {
+            const geometry = new THREE.BufferGeometry().setFromPoints([blocks[i].position, blocks[i + 1].position]);
+            const line = new THREE.Line(geometry, lineMaterial);
+            scene.add(line);
+        }
+
+        // Position the camera
+        camera.position.set(0, 5, 15);
+        camera.lookAt(0, 5, 0);
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+            css3DRenderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

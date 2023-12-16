@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>30d Balance of Alice</title>
+    <style>
+        body { background-color: #333; color: #fff; }
+        canvas { background-color: #444; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest"></script>
+</head>
+<body>
+    <h2 style="text-align:center;">30d Balance of Alice</h2>
+    <canvas id="lineChart" width="800" height="400"></canvas>
+    <script>
+        var ctx = document.getElementById('lineChart').getContext('2d');
+
+        // Styling variables
+        var lineChartColors = {
+            gridLines: 'rgba(255, 255, 255, 0.1)',
+            labels: '#fff',
+            lineColor: '#0d6efd',
+            pointBackgroundColor: '#0d6efd',
+            pointBorderColor: '#fff'
+        };
+
+        // Generate random data points
+        function generateRandomData(start, end, count) {
+            var data = [start];
+            for (let i = 1; i < count - 1; i++) {
+                data.push(Math.random() * (end - start) + start);
+            }
+            data.push(end);
+            return data;
+        }
+
+        var balanceData = generateRandomData(100, 123, 30);
+
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 30}, (_, i) => i + 1), // Days 1 to 30
+                datasets: [{
+                    label: 'Balance',
+                    data: balanceData,
+                    borderColor: lineChartColors.lineColor,
+                    backgroundColor: lineChartColors.pointBackgroundColor,
+                    pointBorderColor: lineChartColors.pointBorderColor,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            color: lineChartColors.gridLines
+                        },
+                        ticks: {
+                            color: lineChartColors.labels
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: lineChartColors.gridLines
+                        },
+                        ticks: {
+                            color: lineChartColors.labels
+                        },
+                        beginAtZero: true
+                    }
+                },
+            }
+        });
+    </script>
+</body>
+</html>
