@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/polkadot-js-integration-poc",
+    "version": "0.0.1",
+    "private": true,
+    "main": "index.js",
+    "dependencies": {
+        "@polkadot/api": "^10.11.1"
+    },
+    "scripts": {}
+}

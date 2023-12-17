@@ -1,0 +1,9 @@
+{
+    "name": "@polkar/root",
+    "version": "0.0.1",
+    "private": true,
+    "workspaces": [
+        "packages/*",
+        "poc/*"
+    ]
+}
