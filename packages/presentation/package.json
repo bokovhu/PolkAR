@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/presentation",
+    "description": "Contains the presentation of PolkAR",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "echo Building ..."
+    }
+}

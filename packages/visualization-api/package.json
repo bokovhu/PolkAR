@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/visualization-api",
+    "description": "Contains types and interfaces for visualizations",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "echo Building ..."
+    }
+}
