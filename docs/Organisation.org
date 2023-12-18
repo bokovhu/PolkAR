@@ -1,7 +1,7 @@
 #+COLUMNS: %50ITEM(Task) %7TODO %14CLOCKSUM(Clock)
 
 * Organisation
-** Braindump Frank
+** DONE [#C] Braindump Frank
 :LOGBOOK:
 CLOCK: [2023-12-11 Mon 14:38]--[2023-12-11 Mon 15:32] =>  0:54
 CLOCK: [2023-12-11 Mon 13:20]--[2023-12-11 Mon 14:34] =>  1:14
@@ -74,7 +74,7 @@ CLOCK: [2023-12-11 Mon 13:20]--[2023-12-11 Mon 14:34] =>  1:14
   - [X] [#C] maybe look for present, but most likely i will not docs- [ ] 22 is bauwagen thingy
   - [X] [#C] book a flight
   - [X] [#A] ok thats a lot. lets structure it.
-** Braindum (Structure Version)
+** DONE [#C] Braindum (Structure Version)
 :LOGBOOK:
 CLOCK: [2023-12-11 Mon 16:01]--[2023-12-11 Mon 16:19] =>  0:18
 CLOCK: [2023-12-11 Mon 15:43]--[2023-12-11 Mon 16:01] =>  0:18
@@ -99,7 +99,7 @@ CLOCK: [2023-12-11 Mon 15:43]--[2023-12-11 Mon 16:01] =>  0:18
   - [X] Real Life
     - [X] [#A] on satruday is concert
 
-** Rephrase it
+** DONE [#C] Rephrase it
 - [X] Real Life
   - [X] go to hot tub in budapest
   - [X] go to concert
@@ -130,26 +130,32 @@ CLOCK: [2023-12-11 Mon 15:43]--[2023-12-11 Mon 16:01] =>  0:18
     - [X] send it to Botond
   - [X] Back to Figma, iterate
 
-** TODO [#A] Developing and Design
+** DONE [#A] Developing and Design
 :LOGBOOK:
+CLOCK: [2023-12-13 Wed 02:22]--[2023-12-13 Wed 02:34] =>  0:12
+CLOCK: [2023-12-13 Wed 00:54]--[2023-12-13 Wed 02:19] =>  1:25
+CLOCK: [2023-12-13 Wed 00:19]--[2023-12-13 Wed 00:39] =>  0:20
+CLOCK: [2023-12-13 Wed 00:01]--[2023-12-13 Wed 00:18] =>  0:17
+CLOCK: [2023-12-12 Tue 16:00]--[2023-12-12 Tue 17:28] =>  1:28
+CLOCK: [2023-12-12 Tue 12:22]--[2023-12-12 Tue 12:35] =>  0:13
 CLOCK: [2023-12-12 Tue 11:03]--[2023-12-12 Tue 12:19] =>  1:16
 CLOCK: [2023-12-12 Tue 10:03]--[2023-12-12 Tue 10:49] =>  0:46
 CLOCK: [2023-12-11 Mon 16:38]--[2023-12-11 Mon 17:43] =>  1:05
 CLOCK: [2023-12-11 Mon 16:18]--[2023-12-11 Mon 16:26] =>  0:08
 :END:
-- [-] Developing & Design [3/9]
+- [X] Developing & Design [16/16]
   - [X] Play around with bootstrap landing page thingies
   - [X] create playground/grayscale (simplistic bt theme)
-  - [ ] create Logo
-  - [ ] create a Tagline
-  - [ ] create 3 features
-  - [ ] Setup Figma
-    - [ ] Import Bootstrap components
-    - [ ] Make a landing page
-  - [ ] Developing
-    - [ ] Write landing page in jsx
-    - [ ] send it to Botond
-  - [ ] Back to Figma, iterate
+  - [X] create Logo(ported)
+  - [X] create a Tagline (ported)
+  - [X] create 3 features(ported)
+  - [X] Setup Figma
+    - [X] Import Bootstrap components
+    - [X] Make a landing page (ported firday)
+  - [X] Developing
+    - [X] Write landing page in jsx
+    - [X] send it to Botond
+  - [X] Back to Figma, iterate
   - [X] Explore Visual Copilot
     - [X] watch video
     - [X] Create new figmal file
@@ -162,4 +168,151 @@ CLOCK: [2023-12-11 Mon 16:18]--[2023-12-11 Mon 16:26] =>  0:08
     - [X] instal Vistual studio copilot
     - [X] add in playgroun VisualCopilot
     - [X] create welcome.html
-    - [ ] code typography.html
+    - [X] code typography.html(deprecated)
+  - [X] particpate in Accelator Encode
+  - [X] make a bunch of bars
+  - [X] rearange plaground for visual copilot
+  - [X] make texta.html
+  - [X] make blocka.html
+  - [X] make a .html out of it
+    - [X] create more html'ies
+    - [X] try to solve the responsive issue
+    - [X] go to sleep
+      - conclusion if visual, onyl simple blocks and one breakpoints.
+        these have to be insert by hand. So yeah. I assume bootstrap its just fine. If i wanna go fancy witht he design. yeah figma to go but still takes work.
+  - [X] make 3 html thingies
+    - [X] a typography page (ported)
+    - [X] a color page (ported)
+    - [X] redesign of the Welcome (ported)
+
+** DONE [#A] Fabrication
+:LOGBOOK:
+CLOCK: [2023-12-14 Thu 09:32]--[2023-12-14 Thu 13:21] =>  3:49
+:END:
+- [X] Go into the Fablab
+- [X] inditenfy the best production flow
+- [X] decided with Cutting Wood
+- [X] Choose Material 3mm wooden plate (10mm was not avialable)
+- [X] Sketch out a Jigsaw layout (paint)
+- [X] Use Autodesk Fusion construct 2 sides
+  - [X] top / bottom
+  - [X] front, back, left, right
+- [X] laser cut the first draft
+- [X] inspect error
+- [X] find error (forgot 3mm on the holes)
+- [X] modify construction
+- [X] relaser it
+- [X] inspect
+- [X] done, looks great
+- [X] create bill for production cost estimation
+- [X] things to do
+  - [X] laser Codes on each side or spray or print
+  - [X] glue sides together
+
+** DONE [#A] Presentation
+:LOGBOOK:
+CLOCK: [2023-12-15 Fri 16:39]--[2023-12-15 Fri 17:57] =>  1:18
+CLOCK: [2023-12-15 Fri 13:09]--[2023-12-15 Fri 16:39] =>  3:30
+CLOCK: [2023-12-15 Fri 09:57]--[2023-12-15 Fri 12:59] =>  3:02
+:END:
+- [X] Come up with some kind of structure.
+- [X] Record some ugly version
+- [X] iterate till i just talk the same
+- [X] Create structure
+  - [X] Intro
+  - [X] Everyone
+  - [X] Techies,
+  - [X] Developer
+    - [X] How
+  - [X] Demo
+  - [X] Team
+  - [X] Outro
+- [X] Make Product Picture
+- [X] Photoshop Product Hologram Picture (ported)
+- [X] Photoshop a Product Hologram Picture with AI Brain(ported)
+- [X] Fill Canvas Buisness Model(ported)
+- [X] Create Sequence Diagram(ported)
+- [X] Make Demo Video, upload it, insert it(ported)
+- [X] Publish Website, insert it(ported)
+- [X] Make Picture with Boton Saturday(ported)
+- [X] Photoshop Picture with Botond(ported)
+
+** DONE [#B] Weekend
+:LOGBOOK:
+CLOCK: [2023-12-17 Sun 13:00]--[2023-12-17 Sun 14:00] =>  1:00
+CLOCK: [2023-12-16 Sat 19:00]--[2023-12-16 Sat 23:00] =>  4:00
+:END:
+- [X] Saturday, meet with Botond
+  - [X] discussed Ideas and further doing
+  - [X] get to know each other more
+- [X] Sunday, meet with Vik
+  - [X] first User Test
+  - [X] discussed with Vik about nice Data for Nominators and Validators.
+  - [X] got 4 nice single values
+
+** DONE [#B] Monday
+:LOGBOOK:
+CLOCK: [2023-12-18 Mon 23:03]--[2023-12-18 Mon 23:06] =>  0:03
+CLOCK: [2023-12-18 Mon 20:33]--[2023-12-18 Mon 22:53] =>  2:20
+CLOCK: [2023-12-18 Mon 18:28]--[2023-12-18 Mon 19:56] =>  1:28
+CLOCK: [2023-12-18 Mon 16:31]--[2023-12-18 Mon 18:02] =>  1:31
+CLOCK: [2023-12-18 Mon 13:02]--[2023-12-18 Mon 16:14] =>  3:12
+CLOCK: [2023-12-18 Mon 09:32]--[2023-12-18 Mon 12:09] =>  2:37
+:END:
+- [X] Create Cube with Hologram Picture (ported)
+- [X] Create Cube with Hologram powered by Chip Picture (ported)
+- [X] (optional) fill Canvas Buisness model deprecated
+- [X] Create Sequence Diagram (ported)
+- [X] Create Demo Video (ported)
+- [X] Publish presentation (ported)
+- [X] (optional) Rethink Teampicutre or keep it, no picture
+
+- [X] Write Botond current state
+- [X] Get feedback from Junsiu
+- [X] Talk with Klara get Feedback about Buisness Side
+- [X] Ask for Botond and Me Picture
+
+- [X] make pitch deck
+  - [X] lay out the layout of the pitch deck
+  - [X] write problem
+  - [X] write solution
+  - [X] write Demo
+  - [X] write technical hardships
+  - [X] write Timeline
+  - [X] write Structure
+  - [X] write market (ported)
+  - [X] write comparision (ported)
+  - [X] write feedback (ported)
+  - [X] write conculstion (ported)
+- [X] make buisness plan
+  - [X] write one page of buisness plan (ported)
+  - [X] read 6 page memo layout (ported)
+- [X] send it to klara (ported)
+- [X] talk with botond
+
+- [X] refactore Figma (deprecated)
+- [X] (optional) make vis with heads
+- [X] insert picture of pcs (ported)
+
+- [X] define last steps
+- [X] talk with Vik
+- [X] find good and simple visualtion for nom and val
+- [X] tinker around polkadot JS
+- [ ] switch to mono structure
+
+** [#B] Tuesday
+- [ ] Create Cube with Hologram Picture
+- [ ] Create Cube with Hologram powered by Chip Picture
+- [ ] Create Sequence Diagram
+- [ ] Create Demo Video
+- [ ] Publish presentation
+- [ ] make pitch deck
+  - [ ] write market
+  - [ ] write comparision
+  - [ ] write feedback
+  - [ ] write conculstion
+- [ ] make buisness plan
+  - [ ] write one page of buisness plan
+  - [ ] read 6 page memo layout
+- [ ] send it to klara
+- [ ] insert picture of pcs
