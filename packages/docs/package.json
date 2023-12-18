@@ -1,10 +1,12 @@
 {
-    "name": "@polkar/docs",
-    "description": "Contains documentation for PolkAR",
-    "version": "0.0.1",
-    "dependencies": {},
-    "devDependencies": {},
-    "scripts": {
-        "build": "echo Building ..."
-    }
+  "name": "@polkar/docs",
+  "description": "Contains documentation for PolkAR",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  }
 }
