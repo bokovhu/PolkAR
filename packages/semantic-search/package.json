@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/semantic-search",
+    "description": "Client-side semantic search in the browser, depends on the data from the indexer, and the embedding API",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "echo Building ..."
+    }
+}

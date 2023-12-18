@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/dashboard-builder-assistant",
+    "description": "Library for implementing a dashboard builder assistant, which looks for the correct visualizations, and configures their parameters based on the user prompt",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "echo Building ..."
+    }
+}

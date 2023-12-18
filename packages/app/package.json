@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/app",
+    "description": "The final built frontend application",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "echo Building ..."
+    }
+}

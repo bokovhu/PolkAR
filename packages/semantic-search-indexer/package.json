@@ -1,0 +1,10 @@
+{
+    "name": "@polkar/semantic-search-indexer",
+    "description": "Indexer for the semantic search feature, creates the static semantic search index file",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "echo Building ..."
+    }
+}
