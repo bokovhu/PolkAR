@@ -1,16 +1,19 @@
 {
-  "name": "@polkar/pitchdeck",
-  "description": "Contains Pitch Deck for PolkAR",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
-  },
-  "dependencies": {
+    "name": "@polkar/pitchdeck",
+    "description": "Contains the pitchdeck of PolkAR",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
     "@slidev/cli": "^0.46.0",
     "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest"
-  }
+    "@slidev/theme-seriph": "latest",
+    "@slidev/theme-apple-basic": "latest"
+},
+    "devDependencies": {},
+    "scripts": {
+        "build": "slidev build",
+        "dev": "slidev --open",
+        "export": "slidev export",
+        "preview": "echo 'No preview script provided'"
+    }
 }

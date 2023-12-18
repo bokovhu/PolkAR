@@ -5,5 +5,14 @@
     "workspaces": [
         "packages/*",
         "poc/*"
-    ]
+    ],
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "scripts": {
+        "build": "npm run -w @polkar/app build && npm run -w @polkar/presentation build && npm run -w @polkar/pitchdeck build && npm run -w @polkar/docs build",
+        "dev": "concurrently \"npm run -w @polkar/app dev\" \"npm run -w @polkar/presentation dev\" \"npm run -w @polkar/pitchdeck dev\" \"npm run -w @polkar/docs dev\"",
+        "export": "npm run -w @polkar/app export && npm run -w @polkar/presentation export && npm run -w @polkar/pitchdeck export && npm run -w @polkar/docs export",
+        "preview": "concurrently \"npm run -w @polkar/app preview\" \"npm run -w @polkar/presentation preview\" \"npm run -w @polkar/pitchdeck preview\" \"npm run -w @polkar/docs preview\""
+    }
 }
