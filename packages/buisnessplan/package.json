@@ -1,0 +1,10 @@
+{
+  "name": "@polkar/buisnessplan",
+  "description": "Contains Buisness Plan for PolkAR",
+  "type": "module",
+  "private": true,
+  "scripts": {
+  },
+  "dependencies": {
+  }
+}

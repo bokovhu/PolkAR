@@ -8,11 +8,23 @@ hero:
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Application
+      link: https://app.cubo.rocks
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Youtube
+      link: https://youtube.com
+    - theme: alt
+      text: Presentation
+      link: https://presenation.cubo.rocks
+    - theme: alt
+      text: Pitch Deck
+      link: https://pitchdeck.cubo.rocks
+    - theme: alt
+      text: Buisness Plan 
+      link: https://buisnessplan.cubo.rocks
+    - theme: alt
+      text: Documentation
+      link: https://docs.cubo.rocks
 
 features:
   - title: Feature A
