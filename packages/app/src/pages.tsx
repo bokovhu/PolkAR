@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { $dashboardService, $widgetSearchService } from "./services";
 import { ALL_VISUALIZATIONS } from "./visualizations";
 
@@ -8,6 +8,8 @@ type OnAddCb = () => void;
 type OnArCb = () => void;
 type OnCancelCb = () => void;
 type OnConfigureCb = (widget: any) => void;
+type OnPrepareCb = () => void | Promise<void>;
+type OnReadyCb = () => void;
 
 interface WelcomeProps {
     onEnter: OnEnterCb;
@@ -28,6 +30,10 @@ interface ConfigurePageProps {
 interface ARPageProps {
     onCancel: OnCancelCb;
     onAdd: OnAddCb;
+}
+interface LoadingPageProps {
+    onPrepare: OnPrepareCb;
+    onReady: OnReadyCb;
 }
 
 // Welcome Component
@@ -65,10 +71,12 @@ export function Dashboard({ onAdd, onAr }: DashboardProps) {
             {widgets.length === 0 && <p>Oh, it looks like your dashboard is empty, start building it!</p>}
             <div className="row">
                 {widgets.map((widget: any, index: number) => (
-                    <div key={index} className="col-12 col-md-6 mt-3">
+                    <div key={index} className="col-12 col-xl-6 mt-3">
                         <div className="card">
                             <div className="card-body">
-                                <h5 className="card-title">{widget.name}</h5>
+                                <h5 className="card-title">
+                                    <span className="badge bg-primary rounded-pill">{widget.name}</span>
+                                </h5>
                                 <div className="card-text">
                                     {widget.component({ data: widget.data, settings: widget.settings })}
                                 </div>
@@ -161,4 +169,40 @@ export function ARPage({ onCancel, onAdd }: ARPageProps) {
             </div>
         </div>
     );
+}
+
+// LoadingPage Component
+export function LoadingPage({ onPrepare, onReady }: LoadingPageProps) {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(
+        () => {
+            const prep = async () => {
+                await onPrepare();
+            };
+            prep().then(
+                () => {
+                    onReady();
+                }
+            ).catch(
+                (e) => {
+                    setError(`${e}`);
+                    setLoading(false);
+                }
+            );
+        },
+        []
+    );
+
+    return <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+        {loading ? (
+            <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        ) : (
+            <></>
+        )}
+        {error && <div className="alert alert-danger" role="alert">{error}</div>}
+    </div>
 }
