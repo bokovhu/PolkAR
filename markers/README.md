@@ -11,10 +11,10 @@ This directory contains printable marker images, that are supposed to be glued /
 
 | Barcode Value | Image | Cube Side |
 | --- | --- | --- |
-| `0` | ![](print/front.png) | Front |
-| `1` | ![](print/right.png) | Right |
-| `2` | ![](print/back.png) | Back |
-| `3` | ![](print/left.png) | Left |
-| `4` | ![](print/top.png) | Top |
-| `5` | ![](print/bottom.png) | Bottom |
+| `0` | ![](print/small/front.png) | Front |
+| `1` | ![](print/small/right.png) | Right |
+| `2` | ![](print/small/back.png) | Back |
+| `3` | ![](print/small/left.png) | Left |
+| `4` | ![](print/small/top.png) | Top |
+| `5` | ![](print/small/bottom.png) | Bottom |
 
