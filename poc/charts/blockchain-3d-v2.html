@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blockchain Visualization</title>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Camera Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        // Lighting
+        const light = new THREE.AmbientLight(0xffffff); // Soft white light
+        scene.add(light);
+
+        // Blockchain Data (Example)
+        const blockchain = [
+            { hash: "abc123", parentHash: "" },
+            { hash: "def456", parentHash: "abc123" },
+            { hash: "qru123", parentHash: "def456" },
+            { hash: "ghi789", parentHash: "def456" },
+            // Forked block
+            { hash: "xyz987", parentHash: "def456" },
+            // Further blocks in the longest chain
+            { hash: "uvw123", parentHash: "ghi789" },
+            { hash: "baz123", parentHash: "xyz987" },
+            { hash: "foo123", parentHash: "uvw123" },
+            { hash: "bar123", parentHash: "foo123" }
+        ];
+
+        // Determine the longest chain
+        const leafBlocks = new Set();
+        const longestChain = new Map();
+        blockchain.forEach(block => {
+            const children = blockchain.filter(b => b.parentHash === block.hash);
+            if (children.length === 0) {
+                leafBlocks.add(block.hash);
+            }
+        });
+
+        function getChainLength(block) {
+            if (longestChain.has(block.hash)) {
+                return longestChain.get(block.hash);
+            }
+
+            let result = 1;
+
+            if (block.parentHash && block.parentHash !== "") {
+                const parentBlock = blockchain.find(b => b.hash === block.parentHash);
+                result += getChainLength(parentBlock);
+            }
+
+            longestChain.set(block.hash, result);
+            return result;
+        }
+
+        let longestLeafChainLength = 0;
+        let longestLeafChainHash = "";
+        leafBlocks.forEach(hash => {
+            const length = getChainLength(blockchain.find(b => b.hash === hash));
+            if (length > longestLeafChainLength) {
+                longestLeafChainLength = length;
+                longestLeafChainHash = hash;
+            }
+        });
+
+        const longestChainBlocks = new Set();
+        const toVisit = [blockchain.find(b => b.hash === longestLeafChainHash)];
+        while (toVisit.length > 0) {
+            const block = toVisit.pop();
+            longestChainBlocks.add(block.hash);
+            const parentBlock = blockchain.find(b => b.hash === block.parentHash);
+            if (parentBlock) {
+                toVisit.push(parentBlock);
+            }
+        }
+
+        // Utility Functions
+        const blockMap = new Map();
+        function createBlock(block, color) {
+            const geometry = new THREE.BoxGeometry();
+            const material = new THREE.MeshBasicMaterial({ color });
+            const cube = new THREE.Mesh(geometry, material);
+            cube.userData.hash = block.hash;
+            scene.add(cube);
+            blockMap.set(block.hash, cube);
+            return cube;
+        }
+
+        function connectBlocks(block, parentBlock) {
+            const material = new THREE.LineBasicMaterial({ color: 0xffffff });
+            const points = [];
+            points.push(new THREE.Vector3(...block.position.toArray()));
+            points.push(new THREE.Vector3(...parentBlock.position.toArray()));
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const line = new THREE.Line(geometry, material);
+            scene.add(line);
+        }
+
+        // Create and Position Blocks
+        let x = 0, y = 0;
+        blockchain.forEach(block => {
+            // Determine the color based on the longest chain and if it's a leaf block
+            let color;
+            if (block.hash === longestLeafChainHash) {
+                color = 0x808080; // Gray for the leaf block
+            } else {
+                color = longestChainBlocks.has(block.hash) ? 0x00ff00 : 0xff0000; // Green for longest chain, red for forks
+            }
+
+            // Create and position the block
+            const newBlock = createBlock(block, color);
+            newBlock.position.set(y, x, 0);
+
+            // Adjust y position for forks
+            if (!longestChainBlocks.has(block.hash)) {
+                // y -= 2;
+                newBlock.position.set(y - 2, x + 2, 0);
+            } else {
+                x -= 2;
+            }
+
+            // Connect the block to its parent if the parent exists
+            if (block.parentHash) {
+                const parentBlock = blockMap.get(block.parentHash);
+                if (parentBlock) {
+                    connectBlocks(newBlock, parentBlock);
+                }
+            }
+
+        });
+
+        // Camera Position
+        camera.position.z = 10;
+
+        // Render Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+
+</html>

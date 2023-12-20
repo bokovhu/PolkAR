@@ -3,13 +3,19 @@
     "description": "The final built frontend application",
     "version": "0.0.1",
     "private": true,
-    "dependencies": {},
+    "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+},
     "devDependencies": {
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "esbuild": "^0.19.10",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18"
 },
     "scripts": {
-        "build": "echo 'No build script provided'",
-        "dev": "echo 'No dev script provided'",
+        "build": "tsc && esbuild --bundle --outfile=public/index.js --jsx=automatic src/index.tsx",
+        "dev": "esbuild --watch --serve=0.0.0.0:3000 --servedir=public --bundle --outfile=public/index.js --jsx=automatic src/index.tsx",
         "export": "echo 'No export script provided'",
         "preview": "echo 'No preview script provided'"
     }
