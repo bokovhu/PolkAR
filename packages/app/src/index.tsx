@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { ARPage, AddPage, ConfigurePage, Dashboard, LoadingPage, Welcome } from './pages';
 import { $dashboardService, prepareAppServices } from './services';
+import { Welcome } from './components/welcome-page';
+import { Dashboard } from './components/dashboard-page';
+import { AddPage } from './components/add-page';
+import { ConfigurePage } from './components/configure-page';
+import { ARPage } from './components/ar-page';
+import { LoadingPage } from './components/loading-page';
 
 // App Component
 function App() {

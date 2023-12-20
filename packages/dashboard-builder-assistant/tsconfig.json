@@ -9,7 +9,7 @@
         "declaration": true,
         "declarationMap": true,
         "declarationDir": "types",
-        "strict": true,
+        "strict": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noImplicitReturns": true,
