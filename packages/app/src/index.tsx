@@ -5,7 +5,6 @@ import { Welcome } from './components/welcome-page';
 import { Dashboard } from './components/dashboard-page';
 import { AddPage } from './components/add-page';
 import { ConfigurePage } from './components/configure-page';
-import { ARPage } from './components/ar-page';
 import { LoadingPage } from './components/loading-page';
 
 // App Component
@@ -23,9 +22,8 @@ function App() {
         setPage('add');
     };
 
-    const handleAddFromAr = () => {
-        $dashboardService.startAddingWidgetTo("ar");
-        setPage('add');
+    const handleGoToAr = () => {
+        window.location.href = '/ar.html';
     };
 
     const renderPage = () => {
@@ -33,13 +31,11 @@ function App() {
             case 'welcome':
                 return <Welcome onEnter={() => setPage('dashboard')} />;
             case 'dashboard':
-                return <Dashboard onAdd={handleAddFromDashboard} onAr={() => setPage('ar')} />;
+                return <Dashboard onAdd={handleAddFromDashboard} onAr={handleGoToAr} />;
             case 'add':
                 return <AddPage onCancel={() => setPage('dashboard')} onConfigure={(widget) => { setSelectedWidget(widget); setPage('configure'); }} />;
             case 'configure':
                 return <ConfigurePage onBack={() => setPage('add')} onSave={handleAddWidget} selectedWidget={selectedWidget} />;
-            case 'ar':
-                return <ARPage onCancel={() => setPage('dashboard')} onAdd={handleAddFromAr} />;
             case 'loading':
                 return <LoadingPage onPrepare={prepareAppServices} onReady={() => setPage('dashboard')} />;
             default:
