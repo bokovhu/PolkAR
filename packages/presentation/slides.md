@@ -78,9 +78,10 @@ class: px-20
 
 # 📺 Demo
 
-[Live](https://cubo.surge.sh/)
+[Not Live, but thats the link](https://cubo.surge.sh/)
 
-<Youtube id="jPC3Mbeg1cg" width="700" height="400"/>
+[Friday Video Draft - Drive Link](https://drive.google.com/file/d/1E49WWr9htOLV6L7cVn1Z-xhDIDZAmnro/view?usp=sharing)
+
 
 ---
 layout: intro-image-right
