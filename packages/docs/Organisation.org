@@ -252,6 +252,7 @@ CLOCK: [2023-12-16 Sat 19:00]--[2023-12-16 Sat 23:00] =>  4:00
 
 ** DONE [#B] Monday
 :LOGBOOK:
+CLOCK: [2023-12-18 Mon 23:23]--[2023-12-18 Mon 23:43] =>  0:20
 CLOCK: [2023-12-18 Mon 23:07]--[2023-12-18 Mon 23:18] =>  0:11
 CLOCK: [2023-12-18 Mon 23:03]--[2023-12-18 Mon 23:06] =>  0:03
 CLOCK: [2023-12-18 Mon 20:33]--[2023-12-18 Mon 22:53] =>  2:20
@@ -299,21 +300,122 @@ CLOCK: [2023-12-18 Mon 09:32]--[2023-12-18 Mon 12:09] =>  2:37
 - [X] talk with Vik
 - [X] find good and simple visualtion for nom and val
 - [X] tinker around polkadot JS
-- [ ] switch to mono structure
+- [X] switch to mono structure
 
-** [#B] Tuesday
-- [ ] Create Cube with Hologram Picture
-- [ ] Create Cube with Hologram powered by Chip Picture
-- [ ] Create Sequence Diagram
-- [ ] Create Demo Video
-- [ ] Publish presentation
-- [ ] make pitch deck
-  - [ ] write market
-  - [ ] write comparision
-  - [ ] write feedback
-  - [ ] write conculstion
-- [ ] make buisness plan
-  - [ ] write one page of buisness plan
-  - [ ] read 6 page memo layout
-- [ ] send it to klara
-- [ ] insert picture of pcs
+** DONE [#B] Tuesday
+:LOGBOOK:
+CLOCK: [2023-12-20 Wed 17:23]--[2023-12-20 Wed 18:23] =>  1:00
+CLOCK: [2023-12-19 Tue 16:00]--[2023-12-19 Tue 17:10] =>  1:10
+CLOCK: [2023-12-19 Tue 15:35]--[2023-12-19 Tue 15:48] =>  0:13
+CLOCK: [2023-12-19 Tue 14:21]--[2023-12-19 Tue 15:30] =>  1:09
+CLOCK: [2023-12-19 Tue 13:43]--[2023-12-19 Tue 14:10] =>  0:27
+CLOCK: [2023-12-19 Tue 12:43]--[2023-12-19 Tue 13:29] =>  0:46
+CLOCK: [2023-12-19 Tue 11:44]--[2023-12-19 Tue 12:01] =>  0:17
+CLOCK: [2023-12-19 Tue 10:55]--[2023-12-19 Tue 11:34] =>  0:39
+CLOCK: [2023-12-19 Tue 09:20]--[2023-12-19 Tue 10:39] =>  1:19
+:END:
+- [X] publish draft send it to clara.
+- [X] set up latex
+- [X] read feedback of clara
+- [X] write Introduction
+- [X] write The Backstory
+- [X] write Cubo
+- [X] write Cost and Revenue (ported)
+  - [X] create two table
+  - [X] add content (ported)
+- [X] write Timeline & Market Strategy (ported)
+- [X] write Conculsion (ported)
+
+- [X] participate in Accelator
+- [X] watch some pitch deck roast
+
+- [X] Create Cube with Hologram Picture (ported)
+- [X] Create Cube with Hologram powered by Chip Picture (ported)
+- [X] Create Sequence Diagram (ported)
+- [X] Create Demo Video (ported)
+- [X] Publish presentation (presentation.polkar.surge.sh)
+- [X] make pitch deck (ported)
+  - [X] write market (ported)
+  - [X] write comparision (ported)
+  - [X] write feedback (ported)
+  - [X] write conculstion (ported)
+- [X] make buisness plan
+  - [X] write one page of buisness plan
+  - [X] read 6 page memo layout
+- [X] send it to klara
+- [X] insert picture of pcs (ported)
+
+- [X] come up with some revuence strategies
+- [X] check with botond
+- [X] decide to reshape structure of buisness plan
+
+** [#B] Wednesday
+:LOGBOOK:
+CLOCK: [2023-12-20 Wed 15:02]--[2023-12-20 Wed 16:01] =>  0:59
+CLOCK: [2023-12-20 Wed 13:13]--[2023-12-20 Wed 15:02] =>  1:49
+CLOCK: [2023-12-20 Wed 11:42]--[2023-12-20 Wed 12:25] =>  0:43
+CLOCK: [2023-12-20 Wed 10:03]--[2023-12-20 Wed 11:40] =>  1:37
+:END:
+- [X] Buisness Plan Thingies (deprecated)
+  - [X] write Cost and Revenue (deprecated)
+    - [X] add content (deprecated)
+    - [X] reshape structure, use tactics
+      - [X] write 3 tactics with cost and revenue (deprecated)
+      - [X] write 2 tactics for completion (deprecated)
+  - [X] write Timeline & Market Strategy
+    - [X] rename it, come up with something better
+  - [X] write Conculsion (ported)
+
+- [X] Design Photoshop
+  - [X] Create Cube with Hologram Picture (ported)
+  - [X] Create Cube with Hologram powered by Chip Picture (ported)
+
+- [X] Presentation
+  - [X] Create Sequence Diagram (ported)
+  - [X] Create Demo Video (ported)
+
+- [X] Pitch Deck (deprecated)
+  - [X] make pitch deck (deprecated)
+    - [X] write market (deprecated)
+    - [X] write comparision (deprecated)
+    - [X] write feedback (deprecated)
+    - [X] write conculstion (deprecated)
+
+- [X] insert picture of pcs (they are fine)
+- [X] learn custom gpt prompt
+- [X] get uptodate with botond
+- [X] send access token draft
+
+- [X] Ideation Prompting
+  - [X] write 20 idea (depcreated)
+  - [X] write 10 prompts (deprecated)
+  - [X] create ideation structure
+  - [X] create 5 ideas
+  - [X] send it
+
+
+** [#A] Final Day
+:LOGBOOK:
+CLOCK: [2023-12-21 Thu 09:49]--[2023-12-21 Thu 10:43] =>  0:54
+:END:
+
+- [ ] Design Photoshop
+  - [ ] Create Cube with Hologram Picture (ported)
+  - [ ] Create Cube with Hologram powered by Chip Picture (ported)
+
+- [ ] Presentation
+  - [ ] Create Sequence Diagram (ported)
+  - [ ] Create Demo Video (ported)
+
+- [ ] Write Buisness Plan
+  - [ ] Write Tactics A
+  - [ ] Write Tactics B
+  - [ ] (Optional) Write Tactics CDE
+  - [ ] (Optional) Write Timeline
+  - [ ] Write Conclusion
+
+- [ ] Rewrite Presentation
+
+- [ ] Laser Cubo
+
+- [ ] Make Video
