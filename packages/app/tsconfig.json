@@ -2,18 +2,20 @@
     "compilerOptions": {
         "target": "ES2020",
         "module": "ES2020",
-        "lib": ["es2020"],
+        "moduleResolution": "node",
+        "lib": ["es2020", "dom"],
         "sourceMap": true,
         "outDir": "lib",
         "declaration": true,
         "declarationMap": true,
         "declarationDir": "types",
-        "strict": true,
+        "strict": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react-native"
     }
 }

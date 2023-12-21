@@ -2,9 +2,24 @@
     "name": "@polkar/app",
     "description": "The final built frontend application",
     "version": "0.0.1",
-    "dependencies": {},
-    "devDependencies": {},
+    "private": true,
+    "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@polkadot/api": "^10.11.2",
+    "three": "^0.159.0"
+},
+    "devDependencies": {
+    "typescript": "^5.3.3",
+    "esbuild": "^0.19.10",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/three": "^0.159.0"
+},
     "scripts": {
-        "build": "echo Building ..."
+        "build": "esbuild --bundle --outfile=public/index.js --jsx=automatic src/index.tsx",
+        "dev": "esbuild --watch --serve=0.0.0.0:3000 --servedir=public --bundle --outfile=public/index.js --jsx=automatic src/index.tsx",
+        "export": "surge public polkar-app.surge.sh",
+        "preview": "echo 'No preview script provided'"
     }
 }
