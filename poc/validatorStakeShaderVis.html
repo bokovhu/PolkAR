@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Shader Demo</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Orbit Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        scene.add(directionalLight);
+
+        // Sphere Geometry
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+
+        // Custom Shader
+        const vertexShader = `
+            varying vec2 vUv;
+
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        const fragmentShader = `
+            uniform float inputNumber;
+            varying vec2 vUv;
+
+            void main() {
+                float intensity = mod(inputNumber, 1.0);
+                vec3 color = mix(vec3(0.0, 0.0, 1.0), vec3(1.0, 0.0, 0.0), intensity);
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        const shaderMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                inputNumber: { value: 0 }
+            },
+            vertexShader,
+            fragmentShader
+        });
+
+        const sphere = new THREE.Mesh(geometry, shaderMaterial);
+        scene.add(sphere);
+
+        // Camera Position
+        camera.position.z = 5;
+
+        // Shader Update Function
+        let shaderInput = 0;
+        setInterval(() => {
+            shaderInput += 0.2; // Change this value for different effects
+            shaderMaterial.uniforms.inputNumber.value = shaderInput;
+        }, 5000);
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Responsive Canvas
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>
