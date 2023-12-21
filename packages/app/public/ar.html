@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <title>React and Bootstrap POC</title>
+    <meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
+    <script
+        src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/examples/vendor/three.js/build/three.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/AR-js-org/AR.js/master/three.js/';
+        var scene = new THREE.Scene();
+        var camera = new THREE.Camera();
+        scene.add(camera);
+        var renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // AR.js Context
+        var arToolkitSource = new THREEx.ArToolkitSource({ sourceType: 'webcam' });
+        var arToolkitContext = new THREEx.ArToolkitContext({
+            cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
+            detectionMode: 'mono_and_matrix',
+            matrixCodeType: '3x3_HAMMING63'
+        });
+
+        var barcodeControls = [];
+        var barcodeCubes = [];
+
+        for (let i = 0; i <= 5; i++) {
+            var arMarkerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+                type: "barcode",
+                barcodeValue: i,
+                changeMatrixMode: "cameraTransformMatrix"
+            });
+        }
+
+        arToolkitSource.init(function onReady() {
+            setTimeout(() => {
+                onResize();
+            }, 2000);
+        });
+
+        // Handle resize
+        window.addEventListener('resize', function () {
+            onResize();
+        });
+
+        function onResize() {
+            arToolkitSource.onResizeElement();
+            arToolkitSource.copyElementSizeTo(renderer.domElement);
+            if (arToolkitContext.arController !== null) {
+                arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
+            }
+        }
+
+
+
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        var material = new THREE.MeshStandardMaterial({ color: 0x888888 });
+
+        for (let i = 0; i <= 5; i++) {
+            var cube = new THREE.Mesh(geometry, material);
+            cube.visible = false;
+            scene.add(cube);
+            barcodeCubes.push(cube);
+        }
+
+        var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(0, 1, 0);
+        scene.add(directionalLight);
+
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (arToolkitSource.ready !== false) {
+                arToolkitContext.update(arToolkitSource.domElement);
+            }
+
+            // prioritizeMarkers();
+            renderer.render(scene, camera);
+
+            for (let i = 0; i <= 5; i++) {
+                if (barcodeControls[i] !== undefined) {
+                    if (barcodeControls[i].object3d.visible) {
+                        console.log(`barcode ${i} visible`, barcodeControls[i].object3d.position, barcodeControls[i].object3d.quaternion);
+                        barcodeCubes[i].visible = true;
+                        barcodeCubes[i].position.copy(barcodeControls[i].object3d.position);
+                        barcodeCubes[i].quaternion.copy(barcodeControls[i].object3d.quaternion);
+                    } else {
+                        barcodeCubes[i].visible = false;
+                    }
+                }
+            }
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
