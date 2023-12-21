@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validator and Nominator Visualization</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Scene, camera, and renderer setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Orbit Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        // Dummy data
+        const validators = [
+            { validatorAddress: 'V1', stake: 10 },
+            { validatorAddress: 'V2', stake: 20 },
+            { validatorAddress: 'V3', stake: 30 }
+        ];
+        const nominators = [
+            // Nominators for V1
+            { nominatorAddress: 'N1', stake: 5, validator: 'V1' },
+            { nominatorAddress: 'N2', stake: 4, validator: 'V1' },
+            { nominatorAddress: 'N3', stake: 3, validator: 'V1' },
+            { nominatorAddress: 'N4', stake: 2, validator: 'V1' },
+            { nominatorAddress: 'N5', stake: 1, validator: 'V1' },
+            // Nominators for V2
+            { nominatorAddress: 'N6', stake: 5, validator: 'V2' },
+            { nominatorAddress: 'N7', stake: 4, validator: 'V2' },
+            { nominatorAddress: 'N8', stake: 3, validator: 'V2' },
+            { nominatorAddress: 'N9', stake: 2, validator: 'V2' },
+            { nominatorAddress: 'N10', stake: 1, validator: 'V2' },
+            // Nominators for V3
+            { nominatorAddress: 'N11', stake: 5, validator: 'V3' },
+            { nominatorAddress: 'N12', stake: 4, validator: 'V3' },
+            { nominatorAddress: 'N13', stake: 3, validator: 'V3' },
+            { nominatorAddress: 'N14', stake: 2, validator: 'V3' },
+            { nominatorAddress: 'N15', stake: 1, validator: 'V3' },
+        ];
+
+        // Helper function to create a mesh
+        function createMesh(geometry, color, x, y, z) {
+            const material = new THREE.MeshBasicMaterial({ color });
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set(x, y, z);
+            scene.add(mesh);
+            return mesh;
+        }
+
+        // Create validators (cubes)
+        const maxStake = Math.max(...validators.map(v => v.stake));
+        const validatorMeshes = validators.map((validator, index) => {
+            const size = validator.stake / maxStake;
+            const cubeGeometry = new THREE.BoxGeometry(size, size, size);
+            return createMesh(cubeGeometry, 0x00ff00, Math.cos(index * 2 * Math.PI / validators.length), 0, Math.sin(index * 2 * Math.PI / validators.length));
+        });
+
+        // Create nominators (spheres)
+        const nominatorMeshes = nominators.map(nominator => {
+            const validatorIndex = validators.findIndex(v => v.validatorAddress === nominator.validator);
+            const size = nominator.stake / maxStake * 0.5; // Smaller scale for nominators
+            const sphereGeometry = new THREE.SphereGeometry(size, 32, 32);
+            return createMesh(sphereGeometry, 0xff0000, 0, 0, 0); // Initial position, will be updated
+        });
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Update nominator positions
+            nominators.forEach((nominator, index) => {
+                const validatorIndex = validators.findIndex(v => v.validatorAddress === nominator.validator);
+                const validatorMesh = validatorMeshes[validatorIndex];
+
+                // Calculate orbit position
+                const angle = Date.now() * 0.001 + index * (Math.PI / nominators.length);
+                const distance = 1.5; // Distance from the validator
+                nominatorMeshes[index].position.x = validatorMesh.position.x + Math.cos(angle) * distance;
+                nominatorMeshes[index].position.y = validatorMesh.position.y;
+                nominatorMeshes[index].position.z = validatorMesh.position.z + Math.sin(angle) * distance;
+            });
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Initial camera position and starting the animation loop
+        camera.position.z = 5;
+        animate();
+    </script>
+</head>
+<body>
+</body>
+</html>
+
