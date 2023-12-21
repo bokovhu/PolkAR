@@ -156,8 +156,9 @@ class: px-20
 
 # 📺 Demo 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=xkjiqSxCjaIk6Yce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[Friday Video Draft - Link](https://drive.google.com/file/d/1E49WWr9htOLV6L7cVn1Z-xhDIDZAmnro/view?usp=sharing)  
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=xkjiqSxCjaIk6Yce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ---
@@ -333,13 +334,14 @@ S is "🚚 Ship it": 12/01
 
 # 📈 Market (2/3)
 
-# Product 
+# Revenue
 
 ## Product Revenue
   - Real product sells
   - Data token sells
   - Upgrade sells
 
+> devide in long vs short
 ---
 
 # 📈 Market (3/3)
