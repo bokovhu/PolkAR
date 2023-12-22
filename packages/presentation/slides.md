@@ -40,11 +40,6 @@ class: px-20
     <br/>
     <img src="https://gcdnb.pbrd.co/images/FbPsQg1ReRCP.jpg?o=1" width=300/>
 </div>
-<div>
-    <br/>
-    <br/>
-    <img src="https://gcdnb.pbrd.co/images/FbPsQg1ReRCP.jpg?o=1" width=300/>
-</div>
 
 </div>
 
@@ -123,7 +118,12 @@ image: 'https://gcdnb.pbrd.co/images/EzFVAGMGeIGn.jpg?o=1'
 - 🎨 advanced his AR and buisness skills
 
 ---
-layout: fact
----
 
 # Thank you
+
+- [app.cubo.rocks](https://app.cubo.rocks)
+- [https://github.com/bokovhu/PolkAR](https://github.com/bokovhu/PolkAR)
+
+- [presenation.cubo.rocks](https://presenation.cubo.rocks)
+- [docs.cubo.rocks](https://docs.cubo.rocks)
+- [buisnessplan.cubo.rocks](https://buisnessplan.cubo.rocks)
